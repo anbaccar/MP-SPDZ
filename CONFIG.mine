@@ -1,0 +1,2 @@
+CXX = clang++-11
+MY_CFLAGS =   -DINSECURE 

@@ -9,7 +9,6 @@ keys/*
 
 # Personal CONFIG file #
 ##############################
-CONFIG.mine
 config_mine.py
 
 # Temporary files #
@@ -19,7 +18,6 @@ config_mine.py
 *.rej
 *.tmp
 callgrind.out.*
-HOSTS*
 
 # Vim
 .*.swp

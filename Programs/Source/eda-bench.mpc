@@ -1,0 +1,6 @@
+n = 64
+
+@for_range(1000)
+def _(i):
+    sint.get_edabit(n, 'strict' in program.args)[0].store_in_mem(regint(0))
+    

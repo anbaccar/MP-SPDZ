@@ -1,0 +1,104 @@
+./replicated-ring-party.x
+Scripts/ring.sh eda-bench
+./Fake-Offline.x 3 -e 64
+Scripts/ring.sh eda-bench
+Scripts/setup-online.sh 3
+Scripts/run-online.sh eda-bench
+./Fake-Offline.x 3 -e 54
+./Fake-Offline.x
+
+Scripts/setup-ssl.sh 3
+
+./compile.py -R 64 mcomp 2 1 1000000
+
+./compile.py -R 64 eda-bench
+
+./compile.py -R 32 eda-bench
+
+
+Scripts/ring.sh eda-bench
+
+./replicated-ring-party.x -ip HOSTS 0 eda-bench
+./replicated-ring-party.x -ip HOSTS 1 eda-bench
+./replicated-ring-party.x -ip HOSTS 2 eda-bench
+
+
+./run-remote.sh v1_1.0_224 images/collie.jpg ring prob 1
+./run-remote.sh v1_0.25_128 images/collie.jpg ring prob 1
+./run-remote.sh v1_0.25_128 images/collie.jpg ring prob 1
+./run-remote.sh v1_0.25_128 images/collie.jpg ring prob 1
+./run-remote.sh v1_0.25_128 images/collie.jpg ring prob 1
+
+
+
+./replicated-ring-party.x -ip HOSTS 0 eda-bench
+./replicated-ring-party.x -ip HOSTS 1 eda-bench
+./replicated-ring-party.x -ip HOSTS 2 eda-bench
+
+
+{% comment %} ./ps-rep-ring-party.x -ip HOSTS 0 eda-bench
+./ps-rep-ring-party.x -ip HOSTS 1 eda-bench
+./ps-rep-ring-party.x -ip HOSTS 2 eda-bench {% endcomment %}
+
+
+./replicated-ring-party.x -ip HOSTS 0 mcomp-2-1-1000000 
+./replicated-ring-party.x -ip HOSTS 1 mcomp-2-1-1000000 
+./replicated-ring-party.x -ip HOSTS 2 mcomp-2-1-1000000
+
+
+./compile.py -R 64 -Y benchmark_net B
+
+./replicated-ring-party.x -ip HOSTS 0 benchmark_net-B-1
+./replicated-ring-party.x -ip HOSTS 1 benchmark_net-B-1
+./replicated-ring-party.x -ip HOSTS 2 benchmark_net-B-1
+
+
+./replicated-ring-party.x -ip HOSTS 0 benchmark_net-B
+./replicated-ring-party.x -ip HOSTS 1 benchmark_net-B
+./replicated-ring-party.x -ip HOSTS 2 benchmark_net-B
+
+
+// from SecureQ8
+./compile.py -D -R 72 benchmark_mobilenet v1_1.0_224 1 1 conv2ds cisc split
+./compile.py -D -R 72 benchmark_mobilenet v1_0.25_128 1 1 conv2ds cisc split
+
+./compile.py -R 64 -Y benchmark_mobilenet v1_0.25_128 7
+
+
+./compile.py -R 64 -Y benchmark_mobilenet v1_1.0_224 7
+
+./replicated-ring-party.x -ip HOSTS 0 benchmark_mobilenet-v1_0.25_128-7
+./replicated-ring-party.x -ip HOSTS 1 benchmark_mobilenet-v1_0.25_128-7
+./replicated-ring-party.x -ip HOSTS 2 benchmark_mobilenet-v1_0.25_128-7
+
+// mcomp results
+rigel-01
+Time = 5.40033 seconds 
+Data sent = 63.3046 MB
+Global data sent = 173.033 MB
+
+rigel-02
+Time = 5.39909 seconds 
+Data sent = 63.3046 MB
+Global data sent = 173.033 MB
+
+rigel-03
+Time = 5.40213 seconds 
+Data sent = 46.4239 MB
+Global data sent = 173.033 MB
+
+// eda-bench results
+rigel-01:
+Time = 0.399206 seconds
+Data sent = 1.60892 MB
+Global data sent = 3.621 MB
+
+rigel-02:
+Time = 0.399438 seconds
+Data sent = 1.60892 MB
+Global data sent = 3.621 MB
+
+rigel-03:
+Time = 0.399506 seconds
+Data sent = 0.40316 MB
+Global data sent = 3.621 MB
