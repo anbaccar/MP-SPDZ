@@ -7,7 +7,7 @@ except:
     pass
 
 try:
-    l = int(program.args[4])
+    l = int(program.args[2])
 except:
     pass
 
