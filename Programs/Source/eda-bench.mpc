@@ -1,6 +1,17 @@
 n = 64
+l = 1
 
-@for_range(1000)
+try:
+    n = int(program.args[1])
+except:
+    pass
+
+try:
+    l = int(program.args[4])
+except:
+    pass
+
+@for_range(l)
 def _(i):
     sint.get_edabit(n, 'strict' in program.args)[0].store_in_mem(regint(0))
     
