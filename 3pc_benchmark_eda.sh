@@ -11,7 +11,7 @@ declare -a ring_sizes=("32" "64")
 declare -a sleep_times=(0 0 0)
 index=$(($1))
 
-num_iterations=10
+num_iterations=100
 
 for ring in "${ring_sizes[@]}"; do
     for batch in "${batch_sizes[@]}"; do
