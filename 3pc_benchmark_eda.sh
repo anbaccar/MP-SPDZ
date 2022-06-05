@@ -3,15 +3,15 @@
 timestamp=$(date -d "today" +"%Y%m%d%H%M")
 echo $timestamp
 
-# declare -a batch_sizes=("1" "10" "100" "1000" "10000" "100000" "1000000")
-declare -a batch_sizes=("1" "10")
+declare -a batch_sizes=("1" "10" "100" "1000" "10000" "100000" "1000000")
+# declare -a batch_sizes=("1" "10")
 declare -a ring_sizes=("32" "64")
 
 # declare -a sleep_times=(4 2 0)
 declare -a sleep_times=(1 0.5 0)
 index=$(($1))
 
-num_iterations=100
+num_iterations=10
 
 for ring in "${ring_sizes[@]}"; do
     for batch in "${batch_sizes[@]}"; do
