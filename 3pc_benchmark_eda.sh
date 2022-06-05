@@ -25,7 +25,7 @@ for ring in "${ring_sizes[@]}"; do
         #     for ring in "${ring_sizes[@]}"; do
 
         for iter in $(seq 1 $num_iterations); do
-
+            echo $iter
             sleep ${sleep_times[$index]}
             ./replicated-ring-party.x -ip HOSTS $1 eda-bench-$ring-$batch 2>&1 | (grep 'Data sent\|Time') | tee -a $(($ring))_MP-SPDZ_eda_$1_$2_$timestamp.txt
         done
