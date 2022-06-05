@@ -4,7 +4,7 @@ program.use_edabit(int(program.args[1]) == 2)
 print(program.use_dabit, program.use_edabit())
 
 program.set_security(40)
-program.set_bit_length(31)
+# program.set_bit_length(31)
 
 n = 2**20
 
@@ -26,6 +26,11 @@ except:
 
 try:
     l = int(program.args[4])
+except:
+    pass
+
+try:
+    program.set_bit_length(int(program.args[5]))  
 except:
     pass
 
