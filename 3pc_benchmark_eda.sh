@@ -20,6 +20,6 @@ index=$(($1))
 
 for batch in "${batch_sizes[@]}"; do
     for ring in "${ring_sizes[@]}"; do
-            sleep ${sleep_times[$index]}; ./replicated-ring-party.x -ip HOSTS $1 eda-bench-$ring-$batch 2>&1 | tee -a 3pc_MP-SPDZ_$1_$2_$timestamp.txt 
+            sleep ${sleep_times[$index]}; ./replicated-ring-party.x -ip HOSTS $1 eda-bench-$ring-$batch 2>&1 | tee -a 3pc_MP-SPDZ_eda_$1_$2_$timestamp.txt 
     done
 done
