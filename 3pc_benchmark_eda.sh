@@ -7,7 +7,8 @@ echo $timestamp
 declare -a batch_sizes=("1" "10")
 declare -a ring_sizes=("32" "64")
 
-declare -a sleep_times=(4 2 0)
+# declare -a sleep_times=(4 2 0)
+declare -a sleep_times=(0 0 0)
 index=$(($1))
 
 num_iterations=10
