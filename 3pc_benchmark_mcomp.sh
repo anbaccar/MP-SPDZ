@@ -9,7 +9,7 @@ declare -a ring_sizes=("32" "64")
 declare -a sleep_times=(2 1 0)
 index=$(($1))
 
-num_iterations=10
+num_iterations=5
 
 for ring in "${ring_sizes[@]}"; do
     for batch in "${batch_sizes[@]}"; do
@@ -22,7 +22,9 @@ for ring in "${ring_sizes[@]}"; do
         for iter in $(seq 1 $num_iterations); do
             echo $iter
             sleep ${sleep_times[$index]}
-            ./replicated-ring-party.x -ip HOSTS $1 mcomp-2-1-$batch-$ring 2>&1 | (grep 'Data sent\|Time') | tee -a $(($ring))_MP-SPDZ_mcomp_$1_$2_$timestamp.txt
+            # ./replicated-ring-party.x -ip HOSTS $1 mcomp-2-1-$batch-$ring 2>&1 | (grep 'Data sent\|Time') | tee -a $(($ring))_MP-SPDZ_mcomp_$1_$2_$timestamp.txt
+            ./replicated-ring-party.x -ip HOSTS $1 mcomp-2-1-$batch-$ring 2>&1 
+            # | (grep 'Data sent\|Time') | tee -a $(($ring))_MP-SPDZ_mcomp_$1_$2_$timestamp.txt
         done
     done
 done
