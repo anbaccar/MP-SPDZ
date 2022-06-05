@@ -11,7 +11,6 @@ index=$(($1))
 
 num_iterations=10
 
-
 for ring in "${ring_sizes[@]}"; do
     for batch in "${batch_sizes[@]}"; do
         ./compile.py -R 64 mcomp 2 1 $batch $ring_sizes 2>&1
@@ -20,6 +19,8 @@ for ring in "${ring_sizes[@]}"; do
 
         sleep ${sleep_times[$index]}
 
-        ./replicated-ring-party.x -ip HOSTS $1 mcomp-2-1-$batch-$ring 2>&1 | (grep 'Data sent\|Time') | tee -a $(($ring))_MP-SPDZ_mcomp_$1_$2_$timestamp.txt
+        for iter in $(seq 1 $num_iterations); do
+            ./replicated-ring-party.x -ip HOSTS $1 mcomp-2-1-$batch-$ring 2>&1 | (grep 'Data sent\|Time') | tee -a $(($ring))_MP-SPDZ_mcomp_$1_$2_$timestamp.txt
+        done
     done
 done
