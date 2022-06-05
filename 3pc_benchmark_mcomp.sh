@@ -9,8 +9,8 @@ declare -a ring_sizes=("32" "64")
 declare -a sleep_times=(4 2 0)
 index=$(($1))
 
-for batch in "${batch_sizes[@]}"; do
-    for ring in "${ring_sizes[@]}"; do
+for ring in "${ring_sizes[@]}"; do
+    for batch in "${batch_sizes[@]}"; do
         ./compile.py -R 64 mcomp 2 1 $batch $ring_sizes 2>&1
 
         (echo "($ring, $batch)") | tee -a 3pc_MP-SPDZ_mcomp_$1_$2_$timestamp.txt

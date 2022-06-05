@@ -10,9 +10,14 @@ Scripts/run-online.sh eda-bench
 ssh anbaccar@128.205.11.143
 
 
-3pc_benchmark_eda.sh 0 LAN
-3pc_benchmark_eda.sh 1 LAN
-3pc_benchmark_eda.sh 2 LAN
+./3pc_benchmark_eda.sh 0 LAN
+./3pc_benchmark_eda.sh 1 LAN
+./3pc_benchmark_eda.sh 2 LAN
+
+./3pc_benchmark_mcomp.sh 0 LAN
+./3pc_benchmark_mcomp.sh 1 LAN
+./3pc_benchmark_mcomp.sh 2 LAN
+
 
 Scripts/setup-ssl.sh 3
 
