@@ -10,6 +10,10 @@ Scripts/run-online.sh eda-bench
 ssh anbaccar@128.205.11.143
 
 
+3pc_benchmark_eda.sh 0
+3pc_benchmark_eda.sh 1
+3pc_benchmark_eda.sh 2
+
 Scripts/setup-ssl.sh 3
 
 ./compile.py -R 64 mcomp 2 1 1000000
