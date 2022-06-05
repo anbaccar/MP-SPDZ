@@ -7,21 +7,33 @@ Scripts/run-online.sh eda-bench
 ./Fake-Offline.x 3 -e 54
 ./Fake-Offline.x
 
+ssh anbaccar@128.205.11.143
+
+
 Scripts/setup-ssl.sh 3
 
 ./compile.py -R 64 mcomp 2 1 1000000
 
 ./compile.py -R 64 eda-bench
-./compile.py -R 64 eda-bench 64 10000
 
-./compile.py -R 32 eda-bench
+./compile.py -R 64 eda-bench 64 10
+./compile.py -R 64 eda-bench 32 10
+
+
+// ONLY NEED TO RUN ONCE TO GET KEYS SHARED
+scp -r Player-Data anbaccar@128.205.11.55:MP-SPDZ
+scp -r Player-Data anbaccar@128.205.11.88:MP-SPDZ
 
 
 Scripts/ring.sh eda-bench
 
-./replicated-ring-party.x -ip HOSTS 0 eda-bench
-./replicated-ring-party.x -ip HOSTS 1 eda-bench
-./replicated-ring-party.x -ip HOSTS 2 eda-bench
+./replicated-ring-party.x -ip HOSTS 0 eda-bench-32-10
+./replicated-ring-party.x -ip HOSTS 1 eda-bench-32-10
+./replicated-ring-party.x -ip HOSTS 2 eda-bench-32-10
+
+./replicated-ring-party.x -ip HOSTS 0 eda-bench-64-10000
+./replicated-ring-party.x -ip HOSTS 1 eda-bench-64-10000
+./replicated-ring-party.x -ip HOSTS 2 eda-bench-64-10000
 
 
 ./run-remote.sh v1_1.0_224 images/collie.jpg ring prob 1
