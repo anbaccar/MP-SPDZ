@@ -15,7 +15,7 @@ for ring in "${ring_sizes[@]}"; do
     for batch in "${batch_sizes[@]}"; do
         ./compile.py -R 64 mcomp 2 1 $batch $ring 2>&1
 
-        (echo "($ring, $batch)") | tee -a $(($ring))_MP-SPDZ_mcomp_$1_$2_$timestamp.txt
+        (echo "($ring, $batch, $num_iterations)") | tee -a $(($ring))_MP-SPDZ_mcomp_$1_$2_$timestamp.txt
 
         sleep ${sleep_times[$index]}
 
