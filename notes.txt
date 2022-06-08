@@ -9,7 +9,7 @@ Scripts/run-online.sh eda-bench
 
 ssh anbaccar@128.205.11.143
 
-./compile.py -R 64 mcomp_v1 2 1000000
+./compile.py -R 64 mcomp_v1 2 1 1000000
 
 ./3pc_benchmark_eda.sh 0 LAN
 ./3pc_benchmark_eda.sh 1 LAN
@@ -68,9 +68,9 @@ Scripts/ring.sh eda-bench
 ./ps-rep-ring-party.x -ip HOSTS 2 eda-bench {% endcomment %}
 
 
-./replicated-ring-party.x -ip HOSTS 0 mcomp-2-1-1000000 
-./replicated-ring-party.x -ip HOSTS 1 mcomp-2-1-1000000 
-./replicated-ring-party.x -ip HOSTS 2 mcomp-2-1-1000000
+./replicated-ring-party.x -ip HOSTS 0 mcomp_v1-2-1-1000000 
+./replicated-ring-party.x -ip HOSTS 1 mcomp_v1-2-1-1000000 
+./replicated-ring-party.x -ip HOSTS 2 mcomp_v1-2-1-1000000
 
 
 ./compile.py -R 64 -Y benchmark_net B
