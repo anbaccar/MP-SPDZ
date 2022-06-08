@@ -9,6 +9,7 @@ Scripts/run-online.sh eda-bench
 
 ssh anbaccar@128.205.11.143
 
+./compile.py -R 64 mcomp_v1 2 1000000
 
 ./3pc_benchmark_eda.sh 0 LAN
 ./3pc_benchmark_eda.sh 1 LAN
@@ -34,6 +35,9 @@ Scripts/setup-ssl.sh 3
 scp -r Player-Data anbaccar@128.205.11.55:MP-SPDZ
 scp -r Player-Data anbaccar@128.205.11.88:MP-SPDZ
 
+
+scp -r Player-Data anbaccar@128.205.11.55:MP-SPDZ
+scp -r Player-Data anbaccar@128.205.11.88:MP-SPDZ
 
 Scripts/ring.sh eda-bench
 
