@@ -17,6 +17,10 @@ try:
 except:
     n_threads = None
 
+if program.args[3] == '1':
+    program.use_trunc_pr = True
+
+
 ml.Layer.n_threads = n_threads
 ml.FixConv2d.use_conv2ds = True
 
