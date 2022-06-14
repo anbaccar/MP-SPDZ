@@ -18,12 +18,6 @@ for ring in "${ring_sizes[@]}"; do
         ./compile.py -R 64 eda-bench $ring $batch
         (echo "($ring, $batch, $num_iterations)") | tee -a $(($ring))_MP-SPDZ_eda_$1_$2_$timestamp.txt
 
-        #     done
-        # done
-
-        # for batch in "${batch_sizes[@]}"; do
-        #     for ring in "${ring_sizes[@]}"; do
-
         for iter in $(seq 1 $num_iterations); do
             echo $iter
             sleep ${sleep_times[$index]}
