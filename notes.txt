@@ -23,15 +23,27 @@ ssh anbaccar@128.205.11.143
 // ENABLES TRUNC_PR
 ./compile.py -R 64 benchmark_net B 1 1
 
+// DISABLES TRUNC_PR
+./compile.py -R 64 benchmark_net B 1 0
+
+
+./replicated-ring-party.x -ip HOSTS 0 benchmark_net-B-1-1
+./replicated-ring-party.x -ip HOSTS 1 benchmark_net-B-1-1
+./replicated-ring-party.x -ip HOSTS 2 benchmark_net-B-1-1
+
+
+./replicated-ring-party.x -ip HOSTS 0 benchmark_net-B-1-0
+./replicated-ring-party.x -ip HOSTS 1 benchmark_net-B-1-0
+./replicated-ring-party.x -ip HOSTS 2 benchmark_net-B-1-0
 
 
 
 
 
+./compile.py -R 64 -Z 3 mcomp_v1_31 2 1 1000
 
 
-
-
+./compile.py -R 64 -Z 3 mcomp 2 1 100 64
 
 
 Scripts/setup-ssl.sh 3
