@@ -11,17 +11,17 @@ ssh anbaccar@128.205.11.143
 
 ./compile.py -R 64 mcomp_v1 2 1 1000000
 
-./3pc_benchmark_eda.sh 0 WAN
-./3pc_benchmark_eda.sh 1 WAN
-./3pc_benchmark_eda.sh 2 WAN
+./3pc_benchmark_eda.sh 0 LAN
+./3pc_benchmark_eda.sh 1 LAN
+./3pc_benchmark_eda.sh 2 LAN
 
-./3pc_benchmark_mcomp.sh 0 WAN
-./3pc_benchmark_mcomp.sh 1 WAN
-./3pc_benchmark_mcomp.sh 2 WAN
+./3pc_benchmark_mcomp.sh 0 LAN
+./3pc_benchmark_mcomp.sh 1 LAN
+./3pc_benchmark_mcomp.sh 2 LAN
 
-./3pc_benchmark_mcomp_aby.sh 0 WAN
-./3pc_benchmark_mcomp_aby.sh 1 WAN
-./3pc_benchmark_mcomp_aby.sh 2 WAN
+./3pc_benchmark_mcomp_aby.sh 0 LAN
+./3pc_benchmark_mcomp_aby.sh 1 LAN
+./3pc_benchmark_mcomp_aby.sh 2 LAN
 
 
 ./3pc_benchmark_eda.sh 0 WAN ; sleep 20 ; ./3pc_benchmark_mcomp.sh 0 WAN ; sleep 20  ; ./3pc_benchmark_mcomp_aby.sh 0 WAN
